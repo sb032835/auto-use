@@ -1,0 +1,13 @@
+{
+  "files": {
+    "index.js": "b81f430e75dbf50380e2bce7fa2fbe97c200c3cb8c83a1cc905c57b8ff8d6523",
+    "README.md": "893115937714cf101b6c04948114e45448cb3db33af5c78d4cc3d338fc52512a",
+    "skills.json": {"overwrite": false, "hash": "0062e35fc2a03a620ff07ca8784a61a46b9b25befa6f33c6e464466d24af5a05"}
+  },
+   "defs": {
+	  "C_USE_ITEM": 3,
+	  "S_INVEN": 14,
+	  "C_START_SKILL": 6,
+      "S_START_COOLTIME_ITEM": 1
+  }
+}
