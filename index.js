@@ -66,7 +66,7 @@ let enabled = true,
 	};
 
 	let handle = (info) => {
-		if((useOutOfCombat || dispatch.game.me.inCombat) && !game.me.inBattleground){
+		if((useOutOfCombat || dispatch.game.me.inCombat) && !dispatch.game.me.inBattleground){
 			if(useBroochOn.includes(info.skill.id) && Date.now() > brooch.cooldown) useItem(brooch.id, info.loc, info.w);
 			if(useRootBeerOn.includes(info.skill.id) && rootbeer.amount > 0 && Date.now() > rootbeer.cooldown) useItem(rootbeer.id, info.loc, info.w);
 		}
