@@ -3,13 +3,12 @@ Recommanded to note the skill name in same order so you don't get confused :3 */
 
 /* --------------------------------------------- NO EDITO BELOW THIS --------------------------------------------- */
 
-const Command = require('command');
-const GameState = require('tera-game-state');
-const skills = require('./skills');
+const Command = require('command'),
+	skills = require('./skills');
 
 module.exports = function AutoUse(dispatch){
 const command = Command(dispatch);
-const game = GameState(dispatch);
+
 
 let enabled = true,
 	debug = false,
@@ -50,7 +49,7 @@ let enabled = true,
 
 	let useItem = (item, loc, w) => {
 		dispatch.toServer('C_USE_ITEM', 3, {
-			gameId: game.me.gameId,
+			gameId: dispatch.game.me.gameId,
 			id: item,
 			dbid: { low: 0, high: 0, unsigned: true },
 			target: { low: 0, high: 0, unsigned: true },
@@ -67,7 +66,7 @@ let enabled = true,
 	};
 
 	let handle = (info) => {
-		if((useOutOfCombat || game.me.inCombat) && !game.me.inBattleground){
+		if((useOutOfCombat || dispatch.game.me.inCombat) && !game.me.inBattleground){
 			if(useBroochOn.includes(info.skill.id) && Date.now() > brooch.cooldown) useItem(brooch.id, info.loc, info.w);
 			if(useRootBeerOn.includes(info.skill.id) && rootbeer.amount > 0 && Date.now() > rootbeer.cooldown) useItem(rootbeer.id, info.loc, info.w);
 		}
