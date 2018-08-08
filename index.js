@@ -91,7 +91,7 @@ let enabled = true,
 		if(beer) rootbeer.amount = beer.amount;
 	});
 
-	dispatch.hook('C_START_SKILL', {order: Number.NEGATIVE_INFINITY}, 6, event => {
+	dispatch.hook('C_START_SKILL', 6, {order: Number.NEGATIVE_INFINITY}, event => {
 		if(debug){
 			const Time = new Date();
 			console.log('Time: ' + Time.getHours() + ':' + Time.getMinutes() + ' | Skill ID : ' + event.skill.id);
@@ -100,7 +100,7 @@ let enabled = true,
 		handle(event);
 	});
 
-	dispatch.hook('S_START_COOLTIME_ITEM', {order: Number.NEGATIVE_INFINITY}, 1,  event => {
+	dispatch.hook('S_START_COOLTIME_ITEM', 1, {order: Number.NEGATIVE_INFINITY}, event => {
 		if(!enabled) return;
 		if(event.item === brooch.id) brooch.cooldown = Date.now() + event.cooldown*1000;
 		else if(event.item === rootbeer.id) rootbeer.cooldown = Date.now() + event.cooldown*1000;
