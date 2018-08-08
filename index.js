@@ -6,6 +6,7 @@ Recommanded to note the skill name in same order so you don't get confused :3 */
 const Command = require('command');
 const GameState = require('tera-game-state');
 const skills = require('./skills');
+const config = require('./config');
 
 module.exports = function AutoUse(dispatch){
 const command = Command(dispatch);
@@ -23,7 +24,8 @@ let enabled = true,
 		cooldown : 0
 	},
 	useBroochOn,
-	useRootBeerOn;
+	useRootBeerOn,
+	useOutOfCombat = config.useOutofCombat;
 
 	command.add('au', (arg) => {
 		if(arg){
@@ -66,7 +68,7 @@ let enabled = true,
 	};
 
 	let handle = (info) => {
-		if(game.me.inCombat && !game.me.inBattleground){
+		if((useOutOfCombat || game.me.inCombat) && !game.me.inBattleground){
 			if(useBroochOn.includes(info.skill.id) && Date.now() > brooch.cooldown) useItem(brooch.id, info.loc, info.w);
 			if(useRootBeerOn.includes(info.skill.id) && rootbeer.amount > 0 && Date.now() > rootbeer.cooldown) useItem(rootbeer.id, info.loc, info.w);
 		}
@@ -77,11 +79,11 @@ let enabled = true,
         useRootBeerOn = skills[dispatch.game.me.class].useRootBeerOn;
     });
 
- 	dispatch.hook('C_USE_ITEM', 3, event => {
+ 	dispatch.hook('C_USE_ITEM', 3, {order: Number.NEGATIVE_INFINITY}, event => {
  		if(debug) console.log('ID of Item Used: ' + event.id);
  	});
 
-	dispatch.hook('S_INVEN', 14, event => {
+	dispatch.hook('S_INVEN', 14, {order: Number.NEGATIVE_INFINITY}, event => {
 		if(!enabled) return;
 		const broochinfo = event.items.find(item => item.slot === 20);
 		const beer = event.items.find(item => item.id === rootbeer.id);
@@ -89,7 +91,7 @@ let enabled = true,
 		if(beer) rootbeer.amount = beer.amount;
 	});
 
-	dispatch.hook('C_START_SKILL', 6, event => {
+	dispatch.hook('C_START_SKILL', {order: Number.NEGATIVE_INFINITY}, 6, event => {
 		if(debug){
 			const Time = new Date();
 			console.log('Time: ' + Time.getHours() + ':' + Time.getMinutes() + ' | Skill ID : ' + event.skill.id);
@@ -98,7 +100,7 @@ let enabled = true,
 		handle(event);
 	});
 
-	dispatch.hook('S_START_COOLTIME_ITEM', 1, event => {
+	dispatch.hook('S_START_COOLTIME_ITEM', {order: Number.NEGATIVE_INFINITY}, 1,  event => {
 		if(!enabled) return;
 		if(event.item === brooch.id) brooch.cooldown = Date.now() + event.cooldown*1000;
 		else if(event.item === rootbeer.id) rootbeer.cooldown = Date.now() + event.cooldown*1000;

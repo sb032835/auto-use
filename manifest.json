@@ -1,6 +1,7 @@
 {
   "files": {
-    "index.js": "b81f430e75dbf50380e2bce7fa2fbe97c200c3cb8c83a1cc905c57b8ff8d6523",
+    "config.json": {"overwrite": false, "hash": "91fbe44f3690bab33cd9c8d47f602ec69879214ae6bae6613e7bd24fd0da23b5"},
+    "index.js": "42fe08a16c07fd64162cf46867e5699853e439c6c690be6a2f16e6f747672baf",
     "README.md": "893115937714cf101b6c04948114e45448cb3db33af5c78d4cc3d338fc52512a",
     "skills.json": {"overwrite": false, "hash": "0062e35fc2a03a620ff07ca8784a61a46b9b25befa6f33c6e464466d24af5a05"}
   },
