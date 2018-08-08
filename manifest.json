@@ -8,6 +8,6 @@
 	  "C_USE_ITEM": 3,
 	  "S_INVEN": 14,
 	  "C_START_SKILL": 6,
-      "S_START_COOLTIME_ITEM": 1
+    "S_START_COOLTIME_ITEM": 1
   }
 }
