@@ -79,11 +79,11 @@ let enabled = true,
         useRootBeerOn = skills[dispatch.game.me.class].useRootBeerOn;
     });
 
- 	dispatch.hook('C_USE_ITEM', 3, {order: Number.NEGATIVE_INFINITY}, event => {
+ 	dispatch.hook('C_USE_ITEM', 3, event => {
  		if(debug) console.log('ID of Item Used: ' + event.id);
  	});
 
-	dispatch.hook('S_INVEN', 14, {order: Number.NEGATIVE_INFINITY}, event => {
+	dispatch.hook('S_INVEN', 14, event => {
 		if(!enabled) return;
 		const broochinfo = event.items.find(item => item.slot === 20);
 		const beer = event.items.find(item => item.id === rootbeer.id);
