@@ -6,7 +6,6 @@ Recommanded to note the skill name in same order so you don't get confused :3 */
 const Command = require('command');
 const GameState = require('tera-game-state');
 const skills = require('./skills');
-const config = require('./config');
 
 module.exports = function AutoUse(dispatch){
 const command = Command(dispatch);
@@ -25,7 +24,7 @@ let enabled = true,
 	},
 	useBroochOn,
 	useRootBeerOn,
-	useOutOfCombat = config.useOutofCombat;
+	useOutOfCombat;
 
 	command.add('au', (arg) => {
 		if(arg){
@@ -77,6 +76,7 @@ let enabled = true,
 	dispatch.game.on('enter_game', () => {
         useBroochOn = skills[dispatch.game.me.class].useBroochOn;
         useRootBeerOn = skills[dispatch.game.me.class].useRootBeerOn;
+        useOutOfCombat = skills[dispatch.game.me.class].useOutOfCombat;
     });
 
  	dispatch.hook('C_USE_ITEM', 3, event => {

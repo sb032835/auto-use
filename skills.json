@@ -1,59 +1,72 @@
 {"warrior" : {
 	"useBroochOn" : [200200],
-	"useRootBeerOn" : [200200]
+	"useRootBeerOn" : [200200],
+	"useOutofCombat" : false
 	},
  "lancer" : {
 	"useBroochOn" : [170200],
-	"useRootBeerOn" : [170200]
+	"useRootBeerOn" : [170200],
+	"useOutofCombat" : false
 	}, 
  "slayer": {
 	"useBroochOn" : [],
-	"useRootBeerOn" : []
+	"useRootBeerOn" : [],
+	"useOutofCombat" : false
 	}, 
  "berserker": {
 	"useBroochOn" : [340100],
-	"useRootBeerOn" : [360100]
+	"useRootBeerOn" : [360100],
+	"useOutofCombat" : false
 	},
  "sorcerer": {
 	"useBroochOn" : [],
-	"useRootBeerOn" : []
+	"useRootBeerOn" : [],
+	"useOutofCombat" : false
  	}, 
  "archer": {
 	"useBroochOn" : [],
-	"useRootBeerOn" : []
+	"useRootBeerOn" : [],
+	"useOutofCombat" : false
 	}, 
  "priest": {
 	"useBroochOn" : [],
-	"useRootBeerOn" : []
+	"useRootBeerOn" : [],
+	"useOutofCombat" : false
 	}, 
  "elementalist": { 
  	"_comment" : "MYSTIC",
 	"useBroochOn" : [],
-	"useRootBeerOn" : []
+	"useRootBeerOn" : [],
+	"useOutofCombat" : false
 	}, 
  "fighter": { 
  	"_comment" : "BRAWLER",
 	"useBroochOn" : [],
-	"useRootBeerOn" : []
+	"useRootBeerOn" : [],
+	"useOutofCombat" : false
 	}, 
  "engineer": {
  	"_comment" : "GUNNER",
 	"useBroochOn" : [],
-	"useRootBeerOn" : []
+	"useRootBeerOn" : [],
+	"useOutofCombat" : false
 	}, 
  "glaiver": {
  	"_comment" : "VALK",
 	"useBroochOn" : [],
-	"useRootBeerOn" : []
+	"useRootBeerOn" : [],
+	"useOutofCombat" : false
 	},
  "soulless": { 
  	"_comment" : "REAPER",
 	"useBroochOn" : [],
-	"useRootBeerOn" : []
+	"useRootBeerOn" : [],
+	"useOutofCombat" : false
   }, 
  "assassin": { 
  	"_comment" : "NINJA",
 	"useBroochOn" : [],
-	"useRootBeerOn" : []
+	"useRootBeerOn" : [],
+	"useOutofCombat" : false
 	}
 }
