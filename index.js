@@ -90,7 +90,7 @@ let enabled = true,
 		if(beer) rootbeer.amount = beer.amount;
 	});
 
-	dispatch.hook('C_START_SKILL', 6, {order: Number.NEGATIVE_INFINITY}, event => {
+	dispatch.hook('C_START_SKILL', 7, {order: Number.NEGATIVE_INFINITY}, event => {
 		if(debug){
 			const Time = new Date();
 			console.log('Time: ' + Time.getHours() + ':' + Time.getMinutes() + ' | Skill ID : ' + event.skill.id);
