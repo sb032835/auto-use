@@ -1,13 +1,14 @@
 {
-  "files": {
-    "index.js": "f4a6d4e97b6882091b4b20306e64290af06c061e57533c18cfb899fe589f7796",
-    "README.md": "893115937714cf101b6c04948114e45448cb3db33af5c78d4cc3d338fc52512a",
-    "skills.json":  {"overwrite": false, "hash": "4892cb7c400c702fcc4009633cd4f1ef8d86c889c5c5e95537209f66486ae8e3"}
-  },
-   "defs": {
-	  "C_USE_ITEM": 3,
-	  "S_INVEN": 14,
-	  "C_START_SKILL": 6,
-      "S_START_COOLTIME_ITEM": 1
-  }
+	"files": {
+		"README.md": "faa6373f54b06c191a89875478f1c8febfb2af2bc90e21e91594c4837cddaa77",
+		"index.js": "f79811a16f759e5f4aa82d4d6c0176b55810115ae178edc2ef286d0b938d46b2",
+		"module.json": "218ad9f436912b398821377c3a065e7f015254928ff94029f1b678af522ce2ff",
+		"skills.json": "46a72d7f5d4aa843c981f9d88609e65a57478f973d6fe35204277cd7110402a1"
+	},
+	"defs": {
+		"C_START_SKILL": 6,
+		"C_USE_ITEM": 3,
+		"S_INVEN": 14,
+		"S_START_COOLTIME_ITEM": 1
+	}
 }
