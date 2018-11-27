@@ -1,3 +1,4 @@
 {
+  "disableAutoUpdate": false,
   "servers": ["https://raw.githubusercontent.com/sb032835/auto-use/master/"]
 }
