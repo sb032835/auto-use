@@ -1,13 +1,13 @@
-# Automatically uses Brooch and Rootbeer (if you have them) when using certain skills.  ***Auto detects the brooch you have***
+# 使用技能時自動使用胸針和黑啤酒（如果有的話）.  ***自動檢測您擁有的胸針***
 
-There is two section
-useBroochOn [Currently supports : Gamble, ARush, Dexter]
-useRootBeerOn [Currently supports: Gamble, ARush, Rampage]
+有兩個部分
+胸針 [目前支持 : 戰鬥意志, 破壞氣破, 暴走, 魔力強化]
+黑啤酒 [目前支持 : 戰鬥意志, 破壞氣破, 暴走, 魔力強化]
 
-Put skills in respective field that you want to have auto use effect.
 
-You can get skill ID's from https://moongourd.com/info or do /proxy au debug and use the skill, it will print on your console.
-Commands: 
+可以從 https://moongourd.com/info 獲取技能ID or 在proxy 頻道上使用指令 au debug /proxy au debug ，技能編號將顯示在你的CMD上
+
+指令: 
 > /proxy au on
 
 > /proxy au off
@@ -16,5 +16,3 @@ Commands:
 
 > /proxy help
 
-I have no idea when other classes uses their stuff so, add it yourself in skills!
-Note if you include multiple skill for same class, it will use brooch + beer on the first skill used where the items are off cooldown.
