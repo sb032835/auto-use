@@ -3,10 +3,10 @@
 		"README.md": "b7fc2aa197da021afc2249986812b46050b39ed1c328f8e0670b8ddd05b5b7bf",
 		"index.js": "d26e836a70684ef5982a0f651da4eae445ced9ceb77e761f96b446995db29fc4",
 		"module.json": "218ad9f436912b398821377c3a065e7f015254928ff94029f1b678af522ce2ff",
-		"skills.json": "bad2b68890bd221560cc796ee99d7836096bfc562d1478da8274b9cebd65a11d"
+		"skills.json": {"overwrite": false, "hash":"bad2b68890bd221560cc796ee99d7836096bfc562d1478da8274b9cebd65a11d"
 	},
 	"defs": {
-		"C_START_SKILL": 6,
+		"C_START_SKILL": 7,
 		"C_USE_ITEM": 3,
 		"S_INVEN": 16,
 		"S_START_COOLTIME_ITEM": 1
