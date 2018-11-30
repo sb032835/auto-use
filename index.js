@@ -23,7 +23,8 @@ let enabled = true,
 	},
 	useBroochOn,
 	useRootBeerOn,
-	useOutOfCombat;
+	useOutOfCombat,
+	delay;
 	
 	mod.command.add('au', (arg) => {
 		if(arg){
@@ -61,8 +62,8 @@ let enabled = true,
 
 	let handle = (info) => {
 		if((useOutOfCombat || mod.game.me.inCombat) && !mod.game.me.inBattleground){
-			if(useBroochOn.includes(info.skill.id) && Date.now() > brooch.cooldown) useItem(brooch.id, info.loc, info.w);
-			if(useRootBeerOn.includes(info.skill.id) && rootbeer.amount > 0 && Date.now() > rootbeer.cooldown) useItem(rootbeer.id, info.loc, info.w);
+			if(useBroochOn.includes(info.skill.id) && Date.now() > brooch.cooldown) setTimeout(useItem, delay, brooch.id, info.loc, info.w);
+			if(useRootBeerOn.includes(info.skill.id) && rootbeer.amount > 0 && Date.now() > rootbeer.cooldown) setTimeout(useItem, delay, rootbeer.id, info.loc, info.w);
 		}
 	}; 
 
@@ -70,6 +71,7 @@ let enabled = true,
         useBroochOn = skills[mod.game.me.class].useBroochOn;
         useRootBeerOn = skills[mod.game.me.class].useRootBeerOn;
         useOutOfCombat = skills[mod.game.me.class].useOutOfCombat;
+	delay = skills[mod.game.me.class].delay;
     });
 
  	mod.hook('C_USE_ITEM', 3, event => {
