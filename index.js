@@ -1,10 +1,12 @@
+				
+				
 /*You can get skill ID's from https://moongourd.com/info or do /proxy au debug and use the skill, it will print on your console.
 Recommanded to note the skill name in same order so you don't get confused :3 */
 
 /* --------------------------------------------- NO EDITO BELOW THIS --------------------------------------------- */
 
-const Command = require('command'),
-	skills = require('./skills');
+const skills = require('./skills');
+	
 
 module.exports = function AutoUse(mod){
 
@@ -22,17 +24,17 @@ let enabled = true,
 	useBroochOn,
 	useRootBeerOn,
 	useOutOfCombat;
-
+	
 	mod.command.add('au', (arg) => {
 		if(arg){
 			arg = arg.toLowerCase();
 			if(arg === 'on'){
 				enabled = true;
-				mod.command.message('[Auto Use] Enabled.');
+				mod.command.message('[Auto Use]<font color="#56B4E9">開啟</font>');
 			}
 			else if(arg === 'off'){
 				enabled = false;
-				mod.command.message('[Auto Use] Disabled.');
+				mod.command.message('[Auto Use]<font color="#E69F00">關閉</font>');
 			}
 			else if(arg === 'debug'){
 				debug = !debug;
@@ -46,18 +48,12 @@ let enabled = true,
 	});
 
 	let useItem = (item, loc, w) => {
-		mod.toServer('C_USE_ITEM', 3, {
+		mod.send('C_USE_ITEM', 3, {
 			gameId: mod.game.me.gameId,
 			id: item,
-			dbid: { low: 0, high: 0, unsigned: true },
-			target: { low: 0, high: 0, unsigned: true },
 			amount: 1,
-			dest: { x: 0, y: 0, z: 0 },
 			loc: loc,
 			w: w,
-			unk1: 0,
-			unk2: 0,
-			unk3: 0,
 			unk4: true
         });
         if(debug) console.log('Used : ' + item);
@@ -80,7 +76,7 @@ let enabled = true,
  		if(debug) console.log('ID of Item Used: ' + event.id);
  	});
 
-	mod.hook('S_INVEN', 14, event => {
+	mod.hook('S_INVEN', 16, event => {
 		if(!enabled) return;
 		const broochinfo = event.items.find(item => item.slot === 20);
 		const beer = event.items.find(item => item.id === rootbeer.id);
@@ -88,7 +84,7 @@ let enabled = true,
 		if(beer) rootbeer.amount = beer.amount;
 	});
 
-	mod.hook('C_START_SKILL', 6, {order: Number.NEGATIVE_INFINITY}, event => {
+	mod.hook('C_START_SKILL', 7, {order: Number.NEGATIVE_INFINITY}, event => {
 		if(debug){
 			const Time = new Date();
 			console.log('Time: ' + Time.getHours() + ':' + Time.getMinutes() + ' | Skill ID : ' + event.skill.id);
@@ -99,8 +95,8 @@ let enabled = true,
 
 	mod.hook('S_START_COOLTIME_ITEM', 1, {order: Number.NEGATIVE_INFINITY}, event => {
 		if(!enabled) return;
-		if(event.item === brooch.id) brooch.cooldown = Date.now() + event.cooldown*1000;
-		else if(event.item === rootbeer.id) rootbeer.cooldown = Date.now() + event.cooldown*1000;
+		if(BigInt(event.item) === brooch.id) brooch.cooldown = Date.now() + event.cooldown*1000;
+		else if(BigInt(event.item) === rootbeer.id) rootbeer.cooldown = Date.now() + event.cooldown*1000;
 	});
 
 }
