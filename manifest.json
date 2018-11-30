@@ -1,9 +1,9 @@
 {
 	"files": {
 		"README.md": "b7fc2aa197da021afc2249986812b46050b39ed1c328f8e0670b8ddd05b5b7bf",
-		"index.js": "846930381e89f085de0aa944693be50459e1065bca36e54d200e8eeb5077dd73",
+		"index.js": "5d3ba3af43895f0b545f351b1892c4fa4b28ee1bfbd0e64731283b1458026f68",
 		"module.json": "218ad9f436912b398821377c3a065e7f015254928ff94029f1b678af522ce2ff",
-		"skills.json": "855b6eb5f7e506cd6ed78cb095cbc73ad37bea7cce2097e5db0695062ada1610"
+		"skills.json": "3f9260d5b41e4a305e178b35b38926922a95bfa89a9bf5da5f0f8ea5bb5ecdd2"
 	},
 	"defs": {
 		"C_START_SKILL": 6,
