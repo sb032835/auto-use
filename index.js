@@ -53,8 +53,12 @@ let enabled = true,
 			gameId: mod.game.me.gameId,
 			id: item,
 			amount: 1,
+			dest: { x: 0, y: 0, z: 0 },
 			loc: loc,
 			w: w,
+			unk1: 0,
+			unk2: 0,
+			unk3: 0,
 			unk4: true
         });
         if(debug) console.log('Used : ' + item);
@@ -68,12 +72,13 @@ let enabled = true,
 	}; 
 
 	mod.game.on('enter_game', () => {
-        useBroochOn = skills[mod.game.me.class].useBroochOn;
-        useRootBeerOn = skills[mod.game.me.class].useRootBeerOn;
-        useOutOfCombat = skills[mod.game.me.class].useOutOfCombat;
-	delay = skills[mod.game.me.class].delay;
-    });
-
+		useBroochOn = skills[mod.game.me.class].useBroochOn;
+		useRootBeerOn = skills[mod.game.me.class].useRootBeerOn;
+		useOutOfCombat = skills[mod.game.me.class].useOutOfCombat;
+		delay = skills[mod.game.me.class].delay;
+	});
+	
+	
  	mod.hook('C_USE_ITEM', 3, event => {
  		if(debug) console.log('ID of Item Used: ' + event.id);
  	});
@@ -96,9 +101,9 @@ let enabled = true,
 	});
 
 	mod.hook('S_START_COOLTIME_ITEM', 1, {order: Number.NEGATIVE_INFINITY}, event => {
-		if(!enabled) return;
-		if(BigInt(event.item) === brooch.id) brooch.cooldown = Date.now() + event.cooldown*1000;
-		else if(BigInt(event.item) === rootbeer.id) rootbeer.cooldown = Date.now() + event.cooldown*1000;
+		if (!enabled) return;
+		if (event.item === brooch.id) brooch.cooldown = Date.now() + event.cooldown*1000;
+		else if (event.item === rootbeer.id) rootbeer.cooldown = Date.now() + event.cooldown*1000;
 	});
 
 }
